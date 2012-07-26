@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="wxDlgProject.exe"/>
+    <OBJFILES value="MainDlg.obj wxDlgProject.obj system.obj sysutils.obj DateUtils.obj 
+      strutils.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="rtl.lib"/>
+    <SPARELIBS value="rtl.lib"/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG;_WXMSW_"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;USEPACKAGES"/>
+    <MAINSOURCE value="wxDlgProject.bpf"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\wxWidgets;&quot;C:\Program Files\madCollection\madBasic\BCB6&quot;;&quot;C:\Program Files\madCollection\madDisAsm\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\..\Plugins&quot;;&quot;C:\Program Files\madCollection\madKernel\BCB6&quot;;&quot;C:\Program Files\madCollection\madSecurity\BCB6&quot;;&quot;C:\Program Files\madCollection\madShell\BCB6&quot;"/>
+    <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\lib\wxWidgets;&quot;C:\Program Files\madCollection\madBasic\BCB6&quot;;&quot;C:\Program Files\madCollection\madDisAsm\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\..\Plugins&quot;;&quot;C:\Program Files\madCollection\madKernel\BCB6&quot;;&quot;C:\Program Files\madCollection\madSecurity\BCB6&quot;;&quot;C:\Program Files\madCollection\madShell\BCB6&quot;"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -D_WXMSW_ -I$(BCB)\include 
+      -I$(BCB)\include\wxWidgets 
+      -I&quot;C:\Program Files\madCollection\madBasic\BCB6&quot; 
+      -I&quot;C:\Program Files\madCollection\madDisAsm\BCB6&quot; 
+      -I&quot;C:\Program Files\madCollection\madExcept\BCB6&quot; 
+      -I&quot;C:\Program Files\madCollection\madExcept\..\Plugins&quot; 
+      -I&quot;C:\Program Files\madCollection\madKernel\BCB6&quot; 
+      -I&quot;C:\Program Files\madCollection\madSecurity\BCB6&quot; 
+      -I&quot;C:\Program Files\madCollection\madShell\BCB6&quot; -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -X- -a8 -5 -b -k -y -v -vi- -tW -tWM- -c"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32.lib wxmsw28d.lib wxzlibd.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="wxDlgProject.bpf" FORMNAME="" UNITNAME="wxDlgProject" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MainDlg.cpp" FORMNAME="" UNITNAME="MainDlg.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="wxDlgProject.cpp" FORMNAME="" UNITNAME="wxDlgProject.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="system.cpp" FORMNAME="" UNITNAME="system" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="sysutils.cpp" FORMNAME="" UNITNAME="sysutils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DateUtils.cpp" FORMNAME="" UNITNAME="DateUtils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="strutils.cpp" FORMNAME="" UNITNAME="strutils" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+C:\Program Files\Borland\CBuilder6\Bin\dcldb60.bpl=Borland Database Components
+c:\program files\borland\cbuilder6\Bin\bcbie60.bpl=Borland C++Builder Internet Explorer 5 Components Package
+c:\program files\borland\cbuilder6\Bin\dclqrt60.bpl=QuickReport Components
+c:\program files\borland\cbuilder6\Bin\DCLNMF60.bpl=NetMasters Fastnet Tools
+c:\program files\borland\cbuilder6\Bin\dclbde60.bpl=Borland BDE DB Components
+c:\program files\borland\cbuilder6\Bin\DCLIB60.bpl=InterBase Data Access Components
+C:\Program Files\Borland\CBuilder6\Bin\dclmid60.bpl=Borland MyBase DataAccess Components
+c:\program files\borland\cbuilder6\Bin\dcltee60.bpl=TeeChart Components
+c:\program files\borland\cbuilder6\Bin\dcldss60.bpl=Borland Decision Cube Components
+c:\program files\borland\cbuilder6\Bin\dcltqr60.bpl=TeeChart for QuickReport Components
+c:\program files\borland\cbuilder6\Bin\dclclxdb60.bpl=Borland CLX Database Components
+C:\Program Files\Borland\CBuilder6\Bin\dclclxstd60.bpl=Borland CLX Standard Components
+c:\program files\borland\cbuilder6\Bin\dclmcn60.bpl=Borland DataSnap Connection Components
+c:\program files\borland\cbuilder6\Bin\applet60.bpl=Borland Control Panel Applet Package
+c:\program files\borland\cbuilder6\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+c:\program files\borland\cbuilder6\Bin\dclwbm60.bpl=Borland InternetExpress Components
+c:\program files\borland\cbuilder6\Bin\dclwebsnap60.bpl=Borland WebSnap Components
+c:\program files\borland\cbuilder6\Bin\dcldbx60.bpl=Borland dbExpress Components
+c:\program files\borland\cbuilder6\Bin\dclado60.bpl=Borland ADO DB Components
+c:\program files\borland\cbuilder6\Bin\dclcds60.bpl=Borland Base Cached ClientDataset Component
+c:\program files\borland\cbuilder6\Bin\dclbdecds60.bpl=Borland Local BDE ClientDataset Components
+c:\program files\borland\cbuilder6\Bin\dcldbxcds60.bpl=Borland Local DBX ClientDataset Components
+C:\Program Files\Raize\RC4\Bin\RaizeComponentsVcl_Design60.bpl=Raize Components 4.2.1
+C:\Program Files\Raize\RC4\Bin\RaizeComponentsVclDB_Design60.bpl=Raize Components 4.2.1 (Data-Aware)
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(BCB)\include;$(BCB)\include\wxWidgets
+Item1=C:\Users\Guru\Desktop\CodePaks\bcb6\wxWidgets\Objrepos\wxWidgets\temp;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\lib\wxWidgets
+Item1=C:\Users\Guru\Desktop\CodePaks\bcb6\wxWidgets\Objrepos\wxWidgets\temp;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_DEBUG;_WXMSW_
+Item1=_DEBUG
+
+[Debugging]
+DebugSourceDirs=
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

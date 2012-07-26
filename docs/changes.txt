@@ -1,0 +1,3 @@
+version 0.0.1 - Nov 19, 2007
+* Contains more than 500 VCL functions
+* Contains aprox. 8 basic VCL classes (Delphi Set Implementation, TStringList, Common Dialogs, IniFiles)
