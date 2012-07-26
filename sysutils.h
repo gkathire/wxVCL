@@ -427,9 +427,11 @@ long StrToInt64Def ( wxString const& S,  long Default );
 
 wxString ULongToStr(unsigned long value);
 unsigned long StrToULong(const wxString &str);
+unsigned long StrToULongDef(const wxString &str,unsigned long Default);
 
 wxString LongToStr(long value);
 long StrToLong(const wxString &str);
+long StrToLong(const wxString &str,unsigned long Default);
 
 wxString LoadStr ( int Ident );
 // function FmtLoadStr(Ident: integer; const Args: array of const): string;
@@ -481,6 +483,7 @@ double atof ( wxString const& S );
 
 float StrToFloat(const wxString &str);
 double StrToDouble(const wxString &str);
+double StrToDoubleDef(const wxString &str,   double const& Default );
 
 //Fixme:double atof( wxString const& S,   TFormatSettings const& FormatSettings);
 double StrToFloatDef ( wxString const& S,   double const& Default );

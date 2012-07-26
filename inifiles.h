@@ -112,6 +112,7 @@ public:
     void WriteRect( const wxString & Section, const wxString & Ident,  wxRect Value);
     void WriteSize( const wxString & Section, const wxString & Ident,  wxSize Value);
     void WriteStringList( const wxString & Section, const wxString & Ident,  wxArrayString Value);
+	void WriteStringList( const wxString & Section, const wxString & Ident,  TStringList& Value);
 
     wxString GetName( const wxString & Line);
     wxString GetValue( const wxString & Line, const wxString & Name);

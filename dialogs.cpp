@@ -1,32 +1,32 @@
 /*
-Authors : Guru Kathiresan - gururamnath@yahoo.com , 
-          FreePascal Team - http://www.freepascal.org
+ Authors : Guru Kathiresan - gururamnath@yahoo.com ,
+ FreePascal Team - http://www.freepascal.org
 
-License :
+ License :
 
-Short Verion : wxVCL is distributed under Modified LGPL 
-(the same license used by FCL, LCL). In short, 
-this license allows you to use wxVCL in your application either 
-statically or dynamically linked (and keep your source code as 
-closed source) but you cannot sell wxVCL alone as a seperate 
-product or claim owner ship for it and when you make a change to 
-the wxVCL library (not your application code), you have to give 
-the changes (of the wxVCL library code) back to the community.
+ Short Verion : wxVCL is distributed under Modified LGPL
+ (the same license used by FCL, LCL). In short,
+ this license allows you to use wxVCL in your application either
+ statically or dynamically linked (and keep your source code as
+ closed source) but you cannot sell wxVCL alone as a seperate
+ product or claim owner ship for it and when you make a change to
+ the wxVCL library (not your application code), you have to give
+ the changes (of the wxVCL library code) back to the community.
 
-Long Version : The source code of wxVCL is distributed under the 
-Library GNU General Public License with the following modification:
+ Long Version : The source code of wxVCL is distributed under the
+ Library GNU General Public License with the following modification:
 
-As a special exception, the copyright holders of this library give you
-permission to link this library with independent modules to produce an
-executable, regardless of the license terms of these independent modules,
-and to copy and distribute the resulting executable under terms of your choice,
-provided that you also meet, for each linked independent module, the terms
-and conditions of the license of that module. An independent module is a module
-which is not derived from or based on this library. If you modify this
-library, you may extend this exception to your version of the library, but you are
-not obligated to do so. If you do not wish to do so, delete this exception
-statement from your version.
-*/
+ As a special exception, the copyright holders of this library give you
+ permission to link this library with independent modules to produce an
+ executable, regardless of the license terms of these independent modules,
+ and to copy and distribute the resulting executable under terms of your choice,
+ provided that you also meet, for each linked independent module, the terms
+ and conditions of the license of that module. An independent module is a module
+ which is not derived from or based on this library. If you modify this
+ library, you may extend this exception to your version of the library, but you are
+ not obligated to do so. If you do not wish to do so, delete this exception
+ statement from your version.
+ */
 
 #include "dialogs.h"
 #include <wx/textdlg.h>
@@ -34,254 +34,293 @@ statement from your version.
 /* MessageDlg */
 long GetDlgType(TMsgDlgType DlgType)
 {
-  switch( DlgType )
-  {
-    case mtWarning:
-      return wxICON_EXCLAMATION;
-    case mtError:
-      return wxICON_ERROR;
-    case mtInformation:
-      return wxICON_INFORMATION;
-    case mtConfirmation:
-      return wxICON_QUESTION;
-    //case mtCustom:
-    //default:
-  }
-  return 0;
+	switch (DlgType)
+	{
+	case mtWarning:
+		return wxICON_EXCLAMATION;
+	case mtError:
+		return wxICON_ERROR;
+	case mtInformation:
+		return wxICON_INFORMATION;
+	case mtConfirmation:
+		return wxICON_QUESTION;
+		// case mtCustom:
+		// default:
+	}
+	return 0;
 }
 
-long GetMsgDlgButtonStyle( TMsgDlgButtons Buttons)
+long GetMsgDlgButtonStyle(TMsgDlgButtons Buttons)
 {
-  long Result =0;
-  if (Buttons.Has(mbYes))
-    Result |= wxYES;
-  if (Buttons.Has(mbNo))
-    Result |= wxNO;
-  if (Buttons.Has(mbOK))
-    Result |= wxOK;
-  if (Buttons.Has(mbCancel))
-    Result |= wxCANCEL;
-  if (Buttons.Has(mbAbort))
-    Result |= wxCANCEL;
-  if (Buttons.Has(mbRetry))
-    Result |= wxCANCEL;
-  if (Buttons.Has(mbIgnore))
-    Result |= wxCANCEL;
-  if (Buttons.Has(mbAll))
-    Result |= wxYES;
-  if (Buttons.Has(mbNoToAll))
-    Result |= wxNO;;
-  if (Buttons.Has(mbYesToAll))
-    Result |= wxYES;
-  if (Buttons.Has(mbClose))
-    Result |= wxCANCEL;
-    
-  return Result;
+	long Result = 0;
+	if (Buttons.Has(mbYes))
+		Result |= wxYES;
+	if (Buttons.Has(mbNo))
+		Result |= wxNO;
+	if (Buttons.Has(mbOK))
+		Result |= wxOK;
+	if (Buttons.Has(mbCancel))
+		Result |= wxCANCEL;
+	if (Buttons.Has(mbAbort))
+		Result |= wxCANCEL;
+	if (Buttons.Has(mbRetry))
+		Result |= wxCANCEL;
+	if (Buttons.Has(mbIgnore))
+		Result |= wxCANCEL;
+	if (Buttons.Has(mbAll))
+		Result |= wxYES;
+	if (Buttons.Has(mbNoToAll))
+		Result |= wxNO; ;
+	if (Buttons.Has(mbYesToAll))
+		Result |= wxYES;
+	if (Buttons.Has(mbClose))
+		Result |= wxCANCEL;
+
+	return Result;
 }
 
-long GetMsgDlgButtonDefaultStyle( TMsgDlgBtn Button)
+long GetMsgDlgButtonDefaultStyle(TMsgDlgBtn Button)
 {
-  long Result =0;
-  if (Button == (mbYes))
-    Result |= wxYES_DEFAULT;
-  if (Button == (mbNo))
-    Result |= wxNO_DEFAULT;
-  if (Button == (mbOK))
-    Result = 0;
-  if (Button == (mbCancel))
-    Result = 0;
-  if (Button == (mbAbort))
-    Result = 0;
-  if (Button == (mbRetry))
-    Result = 0;
-  if (Button == (mbIgnore))
-    Result = 0;
-  if (Button == (mbAll))
-    Result |= wxYES_DEFAULT;
-  if (Button == (mbNoToAll))
-    Result |= wxNO_DEFAULT;
-  if (Button == (mbYesToAll))
-    Result |= wxYES_DEFAULT;
-  if (Button == (mbClose))
-    Result = 0;
+	long Result = 0;
+	if (Button == (mbYes))
+		Result |= wxYES_DEFAULT;
+	if (Button == (mbNo))
+		Result |= wxNO_DEFAULT;
+	if (Button == (mbOK))
+		Result = 0;
+	if (Button == (mbCancel))
+		Result = 0;
+	if (Button == (mbAbort))
+		Result = 0;
+	if (Button == (mbRetry))
+		Result = 0;
+	if (Button == (mbIgnore))
+		Result = 0;
+	if (Button == (mbAll))
+		Result |= wxYES_DEFAULT;
+	if (Button == (mbNoToAll))
+		Result |= wxNO_DEFAULT;
+	if (Button == (mbYesToAll))
+		Result |= wxYES_DEFAULT;
+	if (Button == (mbClose))
+		Result = 0;
 
-  return Result;
-}
-
-TModalResult wxIDToModalResult( int IDValue)
-{
-  switch(IDValue)
-  {
-  case wxID_OK:
-    return mrOk;
-  case wxID_CANCEL:
-    return mrCancel;
-  case wxID_ABORT:
-    return mrAbort;
-  case wxID_RETRY:
-    return mrRetry;
-  case wxID_IGNORE:
-    return mrIgnore;
-  case wxID_YES:
-    return mrYes;
-  case wxID_NO:
-    return mrNo;
-  //case wxID_ALL:
-  //  return mrAll;
-  case wxID_NOTOALL:
-    return mrNoToAll;
-  case wxID_YESTOALL:
-    return mrYesToAll;
-  }
-  return mrNone;
+	return Result;
 }
 
-int MessageDlg( wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx)
+TModalResult wxIDToModalResult(int IDValue)
 {
-  return MessageDlg(wxT(""),aMsg, DlgType, Buttons, HelpCtx,mbClose);
-}
-int MessageDlg( wxString const& aCaption, wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx)
-{
-  return MessageDlg(aCaption, aMsg, DlgType, Buttons, HelpCtx,mbClose);
-}
-int MessageDlg( wxString const& aCaption, wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx,  TMsgDlgBtn DefaultButton)
-{
-  wxMessageDialog Dlg(NULL, aMsg, aCaption, GetDlgType (DlgType) | GetMsgDlgButtonStyle(Buttons) | GetMsgDlgButtonDefaultStyle(DefaultButton));
-  return wxIDToModalResult(Dlg.ShowModal());
-}
-int MessageDlg( wxString const& aCaption, wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,   wxString const& HelpKeyword)
-{
-  return MessageDlg( aCaption, aMsg,  DlgType, Buttons,  0, mbClose);
-}
-
-int MessageDlgPos( wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx,  int X, int Y)
-{
-  wxMessageDialog Dlg(NULL, aMsg, wxT(""), GetDlgType (DlgType) | GetMsgDlgButtonStyle(Buttons),wxPoint(X, Y));
-  return wxIDToModalResult(Dlg.ShowModal());
-}
-int MessageDlgPosHelp( wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx,  int X, int Y, wxString const& HelpFileName)
-{
-  return MessageDlgPos( aMsg,  DlgType, Buttons,  HelpCtx,  X, Y);
-}
-
-TModalResult QuestionDlg( wxString const& aCaption, wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,  long HelpCtx)
-{
-  return TModalResult(MessageDlg( aCaption, aMsg,  DlgType, Buttons,  HelpCtx));
+	switch (IDValue)
+	{
+	case wxID_OK:
+		return mrOk;
+	case wxID_CANCEL:
+		return mrCancel;
+	case wxID_ABORT:
+		return mrAbort;
+	case wxID_RETRY:
+		return mrRetry;
+	case wxID_IGNORE:
+		return mrIgnore;
+	case wxID_YES:
+		return mrYes;
+	case wxID_NO:
+		return mrNo;
+		// case wxID_ALL:
+		// return mrAll;
+	case wxID_NOTOALL:
+		return mrNoToAll;
+	case wxID_YESTOALL:
+		return mrYesToAll;
+	}
+	return mrNone;
 }
 
-TModalResult QuestionDlg( wxString const& aCaption, wxString const& aMsg,  TMsgDlgType DlgType, TMsgDlgButtons Buttons,   wxString const& HelpKeyword)
+int MessageDlg(wxString const & aMsg, TMsgDlgType DlgType,
+  TMsgDlgButtons Buttons, long HelpCtx)
 {
-  return TModalResult(MessageDlg( aCaption, aMsg,  DlgType, Buttons,HelpKeyword));
+	return MessageDlg(wxT(""), aMsg, DlgType, Buttons, HelpCtx, mbClose);
 }
 
-void ShowMessage( wxString const& aMsg)
+int MessageDlg(wxString const & aCaption, wxString const & aMsg,
+  TMsgDlgType DlgType, TMsgDlgButtons Buttons, long HelpCtx)
 {
-  MessageDlg( wxT(""),aMsg,   mtCustom , TMsgDlgButtons::Init(mbOK),   wxT(""));
+	return MessageDlg(aCaption, aMsg, DlgType, Buttons, HelpCtx, mbClose);
 }
 
-void ShowMessageFmt( wxString const& aMsg, ...)
+int MessageDlg(wxString const & aCaption, wxString const & aMsg,
+  TMsgDlgType DlgType, TMsgDlgButtons Buttons, long HelpCtx,
+  TMsgDlgBtn DefaultButton)
 {
-  wxString Result;
-  va_list argList;
-  va_start ( argList, aMsg );
-  Result = wxString::Format ( aMsg.c_str(), argList );
-  va_end ( argList );
-  MessageDlg( wxT(""),Result,   mtCustom , TMsgDlgButtons::Init(mbOK),   wxT(""));
+	wxUnusedVar(HelpCtx);
+	wxMessageDialog Dlg(NULL, aMsg, aCaption,
+	  GetDlgType(DlgType) | GetMsgDlgButtonStyle(Buttons)
+	  | GetMsgDlgButtonDefaultStyle(DefaultButton));
+	return wxIDToModalResult(Dlg.ShowModal());
 }
 
-void ShowMessagePos( wxString const& aMsg,  int X, int Y)
+int MessageDlg(wxString const & aCaption, wxString const & aMsg,
+  TMsgDlgType DlgType, TMsgDlgButtons Buttons, wxString const & HelpKeyword)
 {
-  MessageDlgPos( aMsg,  mtCustom, TMsgDlgButtons::Init(mbOK),0,  X, Y);
+	wxUnusedVar(HelpKeyword);
+	return MessageDlg(aCaption, aMsg, DlgType, Buttons, 0, mbClose);
 }
 
-bool InputQuery( wxString const& aCaption, wxString const& APrompt,  bool MaskInput,   wxString & Value)
+int MessageDlgPos(wxString const & aMsg, TMsgDlgType DlgType,
+  TMsgDlgButtons Buttons, long HelpCtx, int X, int Y)
 {
-  wxTextEntryDialog Dlg(NULL,aCaption,APrompt,Value);
-  if (Dlg.ShowModal() != wxID_OK)
-    return false;
-  Value = Dlg.GetValue();
-  return true;
+	wxUnusedVar(HelpCtx);
+	wxMessageDialog Dlg(NULL, aMsg, wxT(""),
+	  GetDlgType(DlgType) | GetMsgDlgButtonStyle(Buttons), wxPoint(X, Y));
+	return wxIDToModalResult(Dlg.ShowModal());
 }
 
-bool InputQuery( wxString const& aCaption, wxString const& APrompt,   wxString & Value)
+int MessageDlgPosHelp(wxString const & aMsg, TMsgDlgType DlgType,
+  TMsgDlgButtons Buttons, long HelpCtx, int X, int Y,
+  wxString const & HelpFileName)
 {
-  return InputQuery( aCaption, APrompt, false, Value);
+	wxUnusedVar(HelpFileName);
+	return MessageDlgPos(aMsg, DlgType, Buttons, HelpCtx, X, Y);
 }
 
-wxString InputBox( wxString const& aCaption, wxString const& APrompt, wxString const& ADefault)
+TModalResult QuestionDlg(wxString const & aCaption, wxString const & aMsg,
+  TMsgDlgType DlgType, TMsgDlgButtons Buttons, long HelpCtx)
 {
-  wxString Value=ADefault;
-  if (InputQuery( aCaption, APrompt, false, Value) == false)
-    return ADefault;
-  else
-    return Value;
+	return TModalResult(MessageDlg(aCaption, aMsg, DlgType, Buttons, HelpCtx));
 }
 
-wxString PasswordBox( wxString const& aCaption, wxString const& APrompt)
+TModalResult QuestionDlg(wxString const & aCaption, wxString const & aMsg,
+  TMsgDlgType DlgType, TMsgDlgButtons Buttons, wxString const & HelpKeyword)
 {
-  wxPasswordEntryDialog Dlg(NULL,aCaption,APrompt);
-  if (Dlg.ShowModal() != wxID_OK)
-    return wxT("");
-  else
-    return Dlg.GetValue();
+	return TModalResult(MessageDlg(aCaption, aMsg, DlgType, Buttons,
+	  HelpKeyword));
 }
 
-bool SelectDirectory( wxString const& Caption, wxString const& InitialDirectory, wxString & Directory)
+void ShowMessage(wxString const & aMsg)
 {
-  wxDirDialog Dlg(NULL,Caption,InitialDirectory);
-  if (Dlg.ShowModal() != wxID_OK)
-    return false;
-  else
-  {
-    Directory = Dlg.GetPath();
-    return true;
-  }
+	MessageDlg(wxT(""), aMsg, mtCustom, TMsgDlgButtons::Init(mbOK), wxT(""));
 }
 
-bool SelectDirectory( wxString const& Caption, wxString const& InitialDirectory, wxString & Directory,  bool ShowHidden,   long HelpCtx)
+void ShowMessageFmt(wxString const & aMsg, ...)
 {
-  return SelectDirectory( Caption, InitialDirectory, Directory);
+	wxString Result;
+	va_list argList;
+	va_start(argList, aMsg);
+	Result = wxString::Format(aMsg.c_str(), argList);
+	va_end(argList);
+	MessageDlg(wxT(""), Result, mtCustom, TMsgDlgButtons::Init(mbOK), wxT(""));
 }
 
-bool SelectDirectory( wxString & Directory, TSelectDirOpts Options,  long HelpCtx)
+void ShowMessagePos(wxString const & aMsg, int X, int Y)
 {
-  return SelectDirectory( wxT("Select"), Directory, Directory);
+	MessageDlgPos(aMsg, mtCustom, TMsgDlgButtons::Init(mbOK), 0, X, Y);
 }
 
-bool QuestionDlg(const wxString &Msg,wxWindow* parent)
+bool InputQuery(wxString const & aCaption, wxString const & APrompt,
+  bool MaskInput, wxString & Value)
 {
-    wxMessageDialog msgDlg(parent,Msg,wxT("Question"),wxYES_NO | wxICON_QUESTION);
-    if (msgDlg.ShowModal() == wxID_YES)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-void InformationDlg(const wxString &Msg,wxWindow* parent)
-{
-    wxMessageDialog msgDlg(parent,Msg,wxT("Question"),wxOK | wxICON_INFORMATION);
-    msgDlg.ShowModal();
+	wxUnusedVar(MaskInput);
+
+	wxTextEntryDialog Dlg(NULL, aCaption, APrompt, Value);
+	if (Dlg.ShowModal() != wxID_OK)
+		return false;
+	Value = Dlg.GetValue();
+	return true;
 }
 
-bool ConfirmationDlg(const wxString &Msg,wxWindow* parent)
+bool InputQuery(wxString const & aCaption, wxString const & APrompt,
+  wxString & Value)
 {
-    wxMessageDialog msgDlg(parent,Msg,wxT("Confirmation"),wxYES | wxNO | wxICON_QUESTION);
-    if (msgDlg.ShowModal() == wxID_YES)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+	return InputQuery(aCaption, APrompt, false, Value);
 }
 
-void ErrorDlg(const wxString &Msg,wxWindow* parent)
+wxString InputBox(wxString const & aCaption, wxString const & APrompt,
+  wxString const & ADefault)
 {
-    wxMessageDialog msgDlg(parent,Msg,wxT("Error"),wxOK | wxICON_ERROR );
-    msgDlg.ShowModal();
+	wxString Value = ADefault;
+	if (InputQuery(aCaption, APrompt, false, Value) == false)
+		return ADefault;
+	else
+		return Value;
 }
 
+wxString PasswordBox(wxString const & aCaption, wxString const & APrompt)
+{
+	wxPasswordEntryDialog Dlg(NULL, aCaption, APrompt);
+	if (Dlg.ShowModal() != wxID_OK)
+		return wxT("");
+	else
+		return Dlg.GetValue();
+}
+
+bool SelectDirectory(wxString const & Caption,
+  wxString const & InitialDirectory, wxString & Directory)
+{
+	return SelectDirectory(Caption, InitialDirectory, Directory, true, 0);
+}
+
+bool SelectDirectory(wxString const & Caption,
+  wxString const & InitialDirectory, wxString & Directory, bool ShowHidden,
+  long HelpCtx)
+{
+	wxUnusedVar(ShowHidden);
+	wxUnusedVar(HelpCtx);
+	wxDirDialog Dlg(NULL, Caption, InitialDirectory);
+	if (Dlg.ShowModal() != wxID_OK)
+	{
+		return false;
+	}
+	else
+	{
+		Directory = Dlg.GetPath();
+		return true;
+	}
+}
+
+bool SelectDirectory(wxString & Directory, TSelectDirOpts Options, long HelpCtx)
+{
+	wxUnusedVar(HelpCtx);
+	wxUnusedVar(Options);
+	return SelectDirectory(wxT("Select"), Directory, Directory);
+}
+
+bool QuestionDlg(const wxString &Msg, wxWindow* parent)
+{
+	wxMessageDialog msgDlg(parent, Msg, wxT("Question"),
+	  wxYES_NO | wxICON_QUESTION);
+	if (msgDlg.ShowModal() == wxID_YES)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void InformationDlg(const wxString &Msg, wxWindow* parent)
+{
+	wxMessageDialog msgDlg(parent, Msg, wxT("Question"),
+	  wxOK | wxICON_INFORMATION);
+	msgDlg.ShowModal();
+}
+
+bool ConfirmationDlg(const wxString &Msg, wxWindow* parent)
+{
+	wxMessageDialog msgDlg(parent, Msg, wxT("Confirmation"),
+	  wxYES | wxNO | wxICON_QUESTION);
+	if (msgDlg.ShowModal() == wxID_YES)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void ErrorDlg(const wxString &Msg, wxWindow* parent)
+{
+	wxMessageDialog msgDlg(parent, Msg, wxT("Error"), wxOK | wxICON_ERROR);
+	msgDlg.ShowModal();
+}

@@ -35,6 +35,8 @@ statement from your version.
 #include <wx/wx.h>
 #include <wx/listctrl.h>
 #include <wx/treectrl.h>
+#include <wx/listbox.h>
+#include "classes.h"
 
 bool SetListViewColumnText( wxListCtrl *lstCtrl, long row_number, int column , const wxString & Content);
 wxString GetListViewColumnText(wxListCtrl *lstCtrl, long row_number, int column );
@@ -48,5 +50,7 @@ bool SetStringListLongListInCombo(wxComboBox *cbx,const wxArrayString &strData,c
 void wxSelectFirstListItem(wxListCtrl *lstvw);
 int GetListViewItemImageIndex(wxListCtrl *lstCtrl, long row_number );
 bool SetListViewItemImageIndex( wxListCtrl *lstCtrl, long row_number, int imageidx);
+TStringList GetListBoxItems(wxListBox *lb);
+void SetListBoxItems(wxListBox *lb,TStringList sl);
 #endif //ComCtrlsH
- 
+

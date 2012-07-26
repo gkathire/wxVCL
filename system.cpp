@@ -1,32 +1,32 @@
 /*
-Authors : Guru Kathiresan - gururamnath@yahoo.com , 
-          FreePascal Team - http://www.freepascal.org
+ Authors : Guru Kathiresan - gururamnath@yahoo.com ,
+ FreePascal Team - http://www.freepascal.org
 
-License :
+ License :
 
-Short Verion : wxVCL is distributed under Modified LGPL 
-(the same license used by FCL, LCL). In short, 
-this license allows you to use wxVCL in your application either 
-statically or dynamically linked (and keep your source code as 
-closed source) but you cannot sell wxVCL alone as a seperate 
-product or claim owner ship for it and when you make a change to 
-the wxVCL library (not your application code), you have to give 
-the changes (of the wxVCL library code) back to the community.
+ Short Verion : wxVCL is distributed under Modified LGPL
+ (the same license used by FCL, LCL). In short,
+ this license allows you to use wxVCL in your application either
+ statically or dynamically linked (and keep your source code as
+ closed source) but you cannot sell wxVCL alone as a seperate
+ product or claim owner ship for it and when you make a change to
+ the wxVCL library (not your application code), you have to give
+ the changes (of the wxVCL library code) back to the community.
 
-Long Version : The source code of wxVCL is distributed under the 
-Library GNU General Public License with the following modification:
+ Long Version : The source code of wxVCL is distributed under the
+ Library GNU General Public License with the following modification:
 
-As a special exception, the copyright holders of this library give you
-permission to link this library with independent modules to produce an
-executable, regardless of the license terms of these independent modules,
-and to copy and distribute the resulting executable under terms of your choice,
-provided that you also meet, for each linked independent module, the terms
-and conditions of the license of that module. An independent module is a module
-which is not derived from or based on this library. If you modify this
-library, you may extend this exception to your version of the library, but you are
-not obligated to do so. If you do not wish to do so, delete this exception
-statement from your version.
-*/
+ As a special exception, the copyright holders of this library give you
+ permission to link this library with independent modules to produce an
+ executable, regardless of the license terms of these independent modules,
+ and to copy and distribute the resulting executable under terms of your choice,
+ provided that you also meet, for each linked independent module, the terms
+ and conditions of the license of that module. An independent module is a module
+ which is not derived from or based on this library. If you modify this
+ library, you may extend this exception to your version of the library, but you are
+ not obligated to do so. If you do not wish to do so, delete this exception
+ statement from your version.
+ */
 
 #include "system.h"
 #include <stdio.h>
@@ -36,201 +36,204 @@ statement from your version.
 #include <wx/filename.h>
 #include <stdlib.h>
 
-
-wxString Copy ( const wxString &str, size_t Index, size_t Count )
+wxString Copy(const wxString &str, size_t Index, size_t Count)
 {
-  wxString Result = str.SubString ( Index, Index + Count );
-  return Result;
+	wxString Result = str.SubString(Index, Index + Count);
+	return Result;
 }
 
-void Delete ( wxString &str, size_t Index, size_t Count )
+void Delete(wxString &str, size_t Index, size_t Count)
 {
-  str = str.Remove ( Index, Count );
+	str = str.Remove(Index, Count);
 }
 
-long Length ( const wxString &str )
+long Length(const wxString &str)
 {
-  return str.Length();
+	return str.Length();
 }
 
-void SetLength ( wxString &str, size_t Size )
+void SetLength(wxString &str, size_t Size)
 {
-  str.Alloc( Size );
+	str.Alloc(Size);
 }
 
-wxString StrPas ( wxChar* p )
+wxString StrPas(wxChar* p)
 {
-  return wxString(p);
+	return wxString(p);
 }
 
-long StrLen ( wxChar* p )
+long StrLen(wxChar* p)
 {
-  return wxStrlen( p );
+	return wxStrlen(p);
 }
 
-void Insert ( wxString const& source,  wxString & s, size_t index )
+void Insert(wxString const & source, wxString & s, size_t index)
 {
-  s.insert ( index, source );
+	s.insert(index, source);
 }
 
-void Insert ( wxChar source,  wxString & s, size_t index )
+void Insert(wxChar source, wxString & s, size_t index)
 {
-  s.insert ( index, source );
+	s.insert(index, source);
 }
 
-long Pos ( wxString const& substr,  wxString const& s )
+long Pos(wxString const & substr, wxString const & s)
 {
-  return s.Find ( ( wxChar * ) substr.c_str() );
+	return s.Find((wxChar *) substr.c_str());
 }
 
-long Pos ( wxChar C,  wxString const& s )
+long Pos(wxChar C, wxString const & s)
 {
-  return s.Find ( C );
+	return s.Find(C);
 }
 
-void SetString ( wxString &s,  wxChar* Buf,  size_t Len )
+void SetString(wxString &s, wxChar* Buf, size_t Len)
 {
-  wxString Result(Buf);
-  s = Result. SubString ( 0, Len );
+	wxString Result(Buf);
+	s = Result.SubString(0, Len);
 }
 
-wxString UpCase ( wxString const& s )
+wxString UpCase(wxString const & s)
 {
-  return s.Upper();
+	return s.Upper();
 }
 
-wxString LowerCase ( wxString const& s )
+wxString LowerCase(wxString const & s)
 {
-  return s.Lower();
+	return s.Lower();
 }
 
-wxString Space ( wxUChar b )
+wxString Space(wxUChar b)
 {
-  return wxString::Format(wxT(" "));
+	wxUnusedVar(b);
+	return wxString::Format(wxT(" "));
 }
 
-wxString HexStr ( long Val, wxUChar cnt )
+wxString HexStr(long Val, wxUChar cnt)
 {
-  return wxString::Format(wxT("%lx"), Val);
+	wxUnusedVar(cnt);
+	return wxString::Format(wxT("%lx"), Val);
 }
 
-wxChar Chr ( wxUChar b )
+wxChar Chr(wxUChar b)
 {
-  return ( wxChar ) b;
+	return (wxChar) b;
 }
 
-wxChar UpCase ( wxChar C )
+wxChar UpCase(wxChar C)
 {
-  return toupper ( C );
+	return toupper(C);
 }
 
-wxChar LowerCase ( wxChar C )
+wxChar LowerCase(wxChar C)
 {
-  return tolower ( C );
+	return tolower(C);
 }
 
-void UniqueString ( wxString & s )
+void UniqueString(wxString & s)
 {
-  srand((unsigned)time(0));
-  s = ExtractFileNameOnly(wxFileName::CreateTempFileName(wxString::Format(wxT("%d"),rand())));
+	srand((unsigned)time(0));
+	s = ExtractFileNameOnly(wxFileName::CreateTempFileName
+	  (wxString::Format(wxT("%d"), rand())));
 }
 
-wxString StringOfChar ( wxChar C, size_t l )
+wxString StringOfChar(wxChar C, size_t l)
 {
-  wxString Result = wxT("");
-  for ( size_t i = 0 ; i < l; ++i )
-    Result += C;
-  return Result;
+	wxString Result = wxT("");
+	for (size_t i = 0; i < l; ++i)
+		Result += C;
+	return Result;
 }
 
-long ParamCount ( void )
+long ParamCount(void)
 {
-  return wxApp::GetInstance()->argc;
+	return wxApp::GetInstance()->argc;
 }
 
-wxString ParamStr ( long l )
+wxString ParamStr(long l)
 {
-  return wxString(wxApp::GetInstance()->argv[l],wxConvLocal);
+	return wxString(wxApp::GetInstance()->argv[l], wxConvLocal);
 }
 
-void Assert ( bool Expr )
+void Assert(bool Expr)
 {
-  wxASSERT ( Expr );
+	wxASSERT(Expr);
 }
 
-void Assert ( bool Expr,   wxString const& Msg )
+void Assert(bool Expr, wxString const & Msg)
 {
-  wxASSERT_MSG ( Expr, Msg );
+	wxASSERT_MSG(Expr, Msg);
 }
 
-wxString Concat ( wxString const& S1, wxString const& S2, wxString const& S3, wxString const& Sn )
+wxString Concat(wxString const & S1, wxString const & S2, wxString const & S3,
+  wxString const & Sn)
 {
-  return ( S1 + S2 + S3 + Sn );
+	return (S1 + S2 + S3 + Sn);
 }
 
-void Dec ( int & X )
+void Dec(int & X)
 {
-  --X;
+	--X;
 }
 
-void Dec ( int & X,  int Decrement )
+void Dec(int & X, int Decrement)
 {
-  X -= Decrement;
+	X -= Decrement;
 }
 
-void Inc ( int & X )
+void Inc(int & X)
 {
-  ++X;
+	++X;
 }
 
-void Inc ( int & X,  int Increment )
+void Inc(int & X, int Increment)
 {
-  X += Increment;
+	X += Increment;
 }
 
-long Ord ( bool bValue )
+long Ord(bool bValue)
 {
-  if ( bValue == true )
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
+	if (bValue == true)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
-int Pred ( int X )
+int Pred(int X)
 {
-  return ( --X );
+	return (--X);
 }
 
-template <class T>
-long SizeOf ( T X )
+template<class T>
+long SizeOf(T X)
 {
-  return sizeof ( X );
+	return sizeof(X);
 }
 
-void Str ( const long & X,   wxString & s )
+void Str(const long & X, wxString & s)
 {
-  s = s.Format ( wxT("%ld"), X );
+	s = s.Format(wxT("%ld"), X);
 }
 
-void Str ( const double & X,   wxString & s )
+void Str(const double & X, wxString & s)
 {
-  s = s.Format ( wxT("%f"), X );
+	s = s.Format(wxT("%f"), X);
 }
 
-int Succ ( int X )
+int Succ(int X)
 {
-  return ( ++X );
+	return (++X);
 }
 
-
-
-void Val ( wxString const& s,  double & V,  unsigned short & Code )
+void Val(wxString const & s, double & V, unsigned short & Code)
 {
-  //fixme: Convert the String to V and the return code as the place where the string has invalid data
-  //THROW_NOT_IMPLEMENTED_ERROR;
-  throw -1;
+	wxUnusedVar(s);
+	wxUnusedVar(V);
+	wxUnusedVar(Code);
+	// fixme: Convert the String to V and the return code as the place where the string has invalid data
+	THROW_NOT_IMPLEMENTED_ERROR;
 }
