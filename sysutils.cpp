@@ -210,7 +210,7 @@ wxString Capitalize(const wxString &str)
 {
 	wxString Result = str.Lower();
 	if (Result.Length() > 0)
-		Result[0] = toupper(Result.c_str()[0]);
+		Result[0] = toupper(Result.fn_str()[0]);
 
 	return Result;
 }
@@ -246,7 +246,7 @@ wxChar* AnsiLastChar(wxString const & S)
 {
 	// fixme: Not sure how the wxChar will be created
 	wxChar* Result = new wxChar(1);
-	Result[0] = S.c_str()[S.Length() - 1];
+	Result[0] = S.fn_str()[S.Length() - 1];
 	return Result;
 }
 
@@ -431,7 +431,7 @@ int StrToInt(wxString const & S)
 {
 	int Result;
 	if (TryStrToInt(S, Result) == false)
-		throw EConvertError::CreateFmt(SInvalidInteger, S.c_str());
+		throw EConvertError::CreateFmt(SInvalidInteger, S.fn_str());
 	return Result;
 }
 
@@ -439,7 +439,7 @@ long StrToInt64(wxString const & S)
 {
 	long Result;
 	if (TryStrToInt64(S, Result) == false)
-		throw EConvertError::CreateFmt(SInvalidInteger, S.c_str());
+		throw EConvertError::CreateFmt(SInvalidInteger, S.fn_str());
 	return Result;
 }
 
@@ -476,22 +476,17 @@ wxString ULongToStr(unsigned long value)
 unsigned long StrToULong(const wxString &str)
 {
 	unsigned long Result;
-	str.ToULong(&Result);
+    str.ToULong(&Result);
 	return Result;
 }
 
 unsigned long StrToULongDef(const wxString &str, unsigned long Default)
 {
-	try
-	{
-		unsigned long Result;
-		str.ToULong(&Result);
-		return Result;
-	}
-	catch (...)
-	{
-		return Default;
-	}
+	unsigned long Result;
+    if (str.ToULong(&Result))
+        return Result;
+    else
+        return Default;
 }
 
 wxString LongToStr(long value)
@@ -545,7 +540,7 @@ wxString Format(wxString const & Fmt, ...)
 	wxString Result;
 	va_list argList;
 	va_start(argList, Fmt);
-	Result = wxString::Format(Fmt.c_str(), argList);
+	Result = wxString::Format(Fmt.fn_str(), argList);
 	va_end(argList);
 	return Result;
 }
@@ -563,7 +558,7 @@ unsigned long FormatBuf(wxChar* Buffer, unsigned long BufLen, wxChar* const Fmt,
 	unsigned long Len = Result.Length();
 	if (Result.Length() > BufLen)
 		Len = BufLen;
-	wxStrncpy(Buffer, Result.c_str(), Len);
+	wxStrncpy(Buffer, Result.fn_str(), Len);
 	return Len;
 }
 
@@ -571,7 +566,7 @@ void FmtStr(wxString & Res, wxString const & Fmt, ...)
 {
 	va_list argList;
 	va_start(argList, Fmt);
-	Res = wxString::Format(Fmt.c_str(), argList);
+	Res = wxString::Format(Fmt.fn_str(), argList);
 	va_end(argList);
 }
 
@@ -581,7 +576,7 @@ wxChar* StrFmt(wxChar* Buffer, wxChar* Fmt, ...)
 	va_start(argList, Fmt);
 	wxString Res = wxString::Format(Fmt, argList);
 	va_end(argList);
-	wxStrcpy(Buffer, Res.c_str());
+	wxStrcpy(Buffer, Res.fn_str());
 	return Buffer;
 }
 
@@ -594,7 +589,7 @@ wxChar* StrLFmt(wxChar* Buffer, unsigned long MaxLen, wxChar* Fmt, ...)
 	int Len = Res.Length();
 	if (Res.Length() > MaxLen)
 		Len = MaxLen;
-	wxStrncpy(Buffer, Res.c_str(), Len);
+	wxStrncpy(Buffer, Res.fn_str(), Len);
 	return Buffer;
 }
 
@@ -619,49 +614,52 @@ double StrToDoubleDef(const wxString &str, double const & Default)
 
 double StrToFloatDef(wxString const & S, double const & Default)
 {
-	double Value = atof(S.c_str());
-	if ((Value == HUGE_VAL) || (Value == -HUGE_VAL))
-		return Default;
-	else
+    double Value;
+    if (S.ToDouble(&Value))
 		return Value;
+	else
+        return Default;		
 }
 
 bool TextToFloat(wxChar* Buffer, double& Value)
 {
-	Value = atof(Buffer);
-	if ((Value == HUGE_VAL) || (Value == -HUGE_VAL))
-		return false;
-	else
+    wxString S(Buffer);
+    if (S.ToDouble(&Value))
 		return true;
+	else
+        return false;		
 }
 
 bool TextToFloat(wxChar* Buffer, double& Value, TFloatValue ValueType)
 {
 	wxUnusedVar(ValueType);
-	// fixme: Check how we can use the TFloatValue
-	Value = atof(Buffer);
-	if ((Value == HUGE_VAL) || (Value == -HUGE_VAL))
-		return false;
-	else
+	wxString S(Buffer);
+	// fixme: Check how we can use the TFloatValue	
+	if (S.ToDouble(&Value))
 		return true;
+	else
+        return false;		
 }
 
 bool TryStrToFloat(wxString const & S, float & Value)
 {
-	Value = atof(S.c_str());
-	if ((Value == HUGE_VAL) || (Value == -HUGE_VAL))
-		return false;
-	else
+    
+    double DValue = Value;
+	if (S.ToDouble(&DValue))
+	{
+        Value = (float)DValue;
 		return true;
+    }
+	else
+        return false;		
 }
 
 bool TryStrToFloat(wxString const & S, double & Value)
 {
-	Value = atof(S.c_str());
-	if ((Value == HUGE_VAL) || (Value == -HUGE_VAL))
-		return false;
-	else
+	if (S.ToDouble(&Value))
 		return true;
+	else
+        return false;
 }
 
 wxString FloatToStr(double Value)
@@ -683,7 +681,7 @@ long FloatToText(wxChar* Buffer, double Value, TFloatFormat Format,
   int Precision, int Digits)
 {
 	wxString Output = FloatToStrF(Value, Format, Precision, Digits);
-	wxStrncpy(Buffer, Output.c_str(), Output.Length());
+	wxStrncpy(Buffer, Output.fn_str(), Output.Length());
 	return Output.Length();
 }
 
@@ -702,11 +700,11 @@ wxString FloatToStrF(double Value, TFloatFormat Format, int Precision,
 		break;
 
 	case ffCurrency:
-		FormatStr = wxString::Format(wxT("%s%%d.%df"), CurrencyString.c_str(),
+		FormatStr = wxString::Format(wxT("%s%%d.%df"), CurrencyString.fn_str(),
 		  Precision, Digits);
 		break;
 	}
-	return wxString::Format(FormatStr.c_str(), Value);
+	return wxString::Format(FormatStr.fn_str(), Value);
 }
 
 wxString FloatToStrF(float Value, TFloatFormat Format, int Precision,
@@ -749,7 +747,7 @@ Currency FloattoCurr(double const & Value)
 	Currency Result;
 	if (!TryFloatToCurr(Value, Result))
 		throw EConvertError::CreateFmt(SInvalidCurrency,
-	  FloatToStr(Value).c_str());
+	  FloatToStr(Value).fn_str());
 	return Result;
 }
 
@@ -760,26 +758,26 @@ wxString CurrToStr(Currency Value)
 
 wxString AnsiDequotedStr(wxString const & S, wxChar AQuote)
 {
-	return AnsiExtractQuotedStr((wxChar*) S.c_str(), AQuote);
+	return AnsiExtractQuotedStr((wxChar*) S.fn_str(), AQuote);
 }
 
 double StrToCurr(wxString const & S)
 {
 	double Result;
-	if (!TextToFloat((wxChar*) S.c_str(), Result, fvCurrency))
-		throw EConvertError::CreateFmt(SInvalidFloat, S.c_str());
+	if (!TextToFloat((wxChar*) S.fn_str(), Result, fvCurrency))
+		throw EConvertError::CreateFmt(SInvalidFloat, S.fn_str());
 	return Result;
 }
 
 bool TryStrToCurr(wxString const & S, double & Value)
 {
-	return TextToFloat((wxChar*) S.c_str(), Value, fvCurrency);
+	return TextToFloat((wxChar*) S.fn_str(), Value, fvCurrency);
 }
 
 double StrToCurrDef(wxString const & S, double Default)
 {
 	Currency Result;
-	if (!TextToFloat((wxChar*) S.c_str(), Result, fvCurrency))
+	if (!TextToFloat((wxChar*) S.fn_str(), Result, fvCurrency))
 		Result = Default;
 	return Result;
 }
@@ -788,7 +786,7 @@ bool StrToBool(wxString const & S)
 {
 	bool Result;
 	if (!(TryStrToBool(S, Result)))
-		throw EConvertError::CreateFmt(SInvalidBoolean, S.c_str());
+		throw EConvertError::CreateFmt(SInvalidBoolean, S.fn_str());
 	return Result;
 }
 
@@ -922,7 +920,7 @@ int LastDelimiter(wxString const & Delimiters, wxString const & S)
 {
 	int Result;
 	Result = S.Length() - 1;
-	while ((Result >= 0) && (Pos(S[Result], Delimiters) == 0))
+	while ((Result >= 0) && (Pos(wxString(S[Result]), Delimiters) == 0))
 		--Result;
 	return Result;
 }
@@ -941,7 +939,7 @@ bool IsDelimiter(wxString const & Delimiters, wxString const & S, int Index)
 	bool Result;
 	Result = false;
 	if ((Index >= 0) && (Index <= (int) Length(S) - 1))
-		Result = Pos(S[Index], Delimiters) != 0;
+		Result = Pos(wxString(S[Index]), Delimiters) != 0;
 	return Result;
 }
 
@@ -1606,7 +1604,7 @@ wxChar* StrNew(const wxChar* P)
 
 wxChar* StrPCopy(wxChar* Dest, const wxString &source)
 {
-	return StrMove(Dest, source.c_str(), source.Length() + 1);
+	return StrMove(Dest, source.fn_str(), source.Length() + 1);
 }
 
 wxChar* StrPLCopy(wxChar* Dest, const wxString &source, size_t MaxLen)
@@ -1712,7 +1710,7 @@ wxString WideFormat(wxString const & Fmt, ...)
 	wxString Result;
 	va_list argList;
 	va_start(argList, Fmt);
-	Result = wxString::Format(Fmt.c_str(), argList);
+	Result = wxString::Format(Fmt.fn_str(), argList);
 	va_end(argList);
 	return Result;
 }

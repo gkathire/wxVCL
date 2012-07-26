@@ -1,0 +1,76 @@
+# Project: Project1
+# Compiler: Default GCC compiler
+# Compiler Type: MingW 3
+# Makefile created by wxDev-C++ IDE 7.4.2.569 on 26/07/12 10:53
+
+WXLIBNAME = wxmsw29u
+CPP       = g++.exe
+CC        = gcc.exe
+WINDRES   = "windres.exe"
+OBJ       = Objects/MingW/Project1App.o Objects/MingW/Project1Dlg.o Objects/MingW/classes.o Objects/MingW/comctrls.o Objects/MingW/dateutils.o Objects/MingW/dialogs.o Objects/MingW/fileutil.o Objects/MingW/inifiles.o Objects/MingW/strutils.o Objects/MingW/sysconst.o Objects/MingW/system.o Objects/MingW/sysutils.o Objects/MingW/Project1_private.res
+LINKOBJ   = "Objects/MingW/Project1App.o" "Objects/MingW/Project1Dlg.o" "Objects/MingW/classes.o" "Objects/MingW/comctrls.o" "Objects/MingW/dateutils.o" "Objects/MingW/dialogs.o" "Objects/MingW/fileutil.o" "Objects/MingW/inifiles.o" "Objects/MingW/strutils.o" "Objects/MingW/sysconst.o" "Objects/MingW/system.o" "Objects/MingW/sysutils.o" Objects/MingW/Project1_private.res
+LIBS      = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/wx/gcc_lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/wx/gcc_lib" -mwindows -lwxmsw29u -lwxmsw29u_gl -lwxtiff -lwxjpeg -lwxpng -lwxzlib -lwxregexu -lwxexpat -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32 -lodbc32 -lopengl32  -g3 
+INCS      = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS   = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/" -I"C:/Program Files (x86)/Dev-Cpp/include/common"
+RCINCS    = --include-dir "C:/PROGRA~2/Dev-Cpp/include/common"
+BIN       = Output/MingW/Project1.exe
+DEFINES   = -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__
+CXXFLAGS  = $(CXXINCS) $(DEFINES) -fno-pcc-struct-return -fstrict-aliasing -Wall -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__   -fexpensive-optimizations -O3 -g3
+CFLAGS    = $(INCS) $(DEFINES) -fno-exceptions -fno-pcc-struct-return -fstrict-aliasing -Wall -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__   -fexpensive-optimizations -O3 -g3
+GPROF     = gprof.exe
+ifeq ($(OS),Windows_NT)
+   RM = del /Q
+   FixPath = $(subst /,\,$1)
+else
+   RM = rm -f
+   FixPath = $1
+endif
+LINK      = g++.exe
+
+.PHONY: all all-before all-after clean clean-custom
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	$(RM) $(call FixPath,$(LINKOBJ)) "$(call FixPath,$(BIN))"
+
+$(BIN): $(OBJ)
+	$(LINK) $(LINKOBJ) -o "$(BIN)" $(LIBS) 
+
+Objects/MingW/Project1App.o: $(GLOBALDEPS) Project1App.cpp Project1App.h Project1Dlg.h
+	$(CPP) -c Project1App.cpp -o Objects/MingW/Project1App.o $(CXXFLAGS)
+
+Objects/MingW/Project1Dlg.o: $(GLOBALDEPS) Project1Dlg.cpp Project1Dlg.h
+	$(CPP) -c Project1Dlg.cpp -o Objects/MingW/Project1Dlg.o $(CXXFLAGS)
+
+Objects/MingW/classes.o: $(GLOBALDEPS) ../classes.cpp ../classes.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h ../sysconst.h ../strutils.h ../sysutils.h ../sysset.h
+	$(CPP) -c ../classes.cpp -o Objects/MingW/classes.o $(CXXFLAGS)
+
+Objects/MingW/comctrls.o: $(GLOBALDEPS) ../comctrls.cpp ../comctrls.h ../classes.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h
+	$(CPP) -c ../comctrls.cpp -o Objects/MingW/comctrls.o $(CXXFLAGS)
+
+Objects/MingW/dateutils.o: $(GLOBALDEPS) ../dateutils.cpp ../dateutils.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h ../sysconst.h ../sysutils.h
+	$(CPP) -c ../dateutils.cpp -o Objects/MingW/dateutils.o $(CXXFLAGS)
+
+Objects/MingW/dialogs.o: $(GLOBALDEPS) ../dialogs.cpp ../dialogs.h ../classes.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h ../sysutils.h ../strutils.h ../sysutils.h ../sysset.h ../sysset.h ../graphics.h
+	$(CPP) -c ../dialogs.cpp -o Objects/MingW/dialogs.o $(CXXFLAGS)
+
+Objects/MingW/fileutil.o: $(GLOBALDEPS) ../fileutil.cpp ../fileutil.h ../classes.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h ../sysutils.h ../strutils.h ../sysutils.h ../sysset.h ../sysutils.h ../sysset.h ../classes.h
+	$(CPP) -c ../fileutil.cpp -o Objects/MingW/fileutil.o $(CXXFLAGS)
+
+Objects/MingW/inifiles.o: $(GLOBALDEPS) ../inifiles.cpp ../inifiles.h ../sysconst.h ../strutils.h ../sysutils.h ../system.h ../sysset.h ../sysset.h ../sysutils.h ../system.h ../classes.h ../sysconst.h ../sysutils.h
+	$(CPP) -c ../inifiles.cpp -o Objects/MingW/inifiles.o $(CXXFLAGS)
+
+Objects/MingW/strutils.o: $(GLOBALDEPS) ../strutils.cpp ../system.h ../strutils.h ../sysutils.h ../system.h ../sysset.h ../sysset.h ../sysutils.h
+	$(CPP) -c ../strutils.cpp -o Objects/MingW/strutils.o $(CXXFLAGS)
+
+Objects/MingW/sysconst.o: $(GLOBALDEPS) ../sysconst.cpp ../sysconst.h
+	$(CPP) -c ../sysconst.cpp -o Objects/MingW/sysconst.o $(CXXFLAGS)
+
+Objects/MingW/system.o: $(GLOBALDEPS) ../system.cpp ../system.h ../fileutil.h ../classes.h ../sysconst.h ../sysutils.h ../system.h ../sysset.h ../sysutils.h
+	$(CPP) -c ../system.cpp -o Objects/MingW/system.o $(CXXFLAGS)
+
+Objects/MingW/sysutils.o: $(GLOBALDEPS) ../sysutils.cpp ../sysutils.h ../system.h ../sysset.h ../sysconst.h
+	$(CPP) -c ../sysutils.cpp -o Objects/MingW/sysutils.o $(CXXFLAGS)
+
+Objects/MingW/Project1_private.res: Objects/MingW/Project1_private.rc Project1App.rc 
+	$(WINDRES) --input-format=rc -o Objects/MingW/Project1_private.res $(RCINCS) Objects/MingW/PROJEC~1.RC -O coff

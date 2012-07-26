@@ -314,8 +314,8 @@ wxDateTime StrToTime ( wxString const& S );
 wxDateTime StrToDateTime ( wxString const& S );
 wxString FormatDateTime ( const wxString &FormatStr,  const wxDateTime &DateTime );
 //New One
-long StrToLongDateTime(const wxString &str,const wxChar *format = wxDefaultDateTimeFormat);
-wxString LongDateTimeToStr(long value,const wxChar *format = wxDefaultDateTimeFormat);
+long StrToLongDateTime(const wxString &str,const wxChar *format);
+wxString LongDateTimeToStr(long value,const wxChar *format);
 //End New One
 void DateTimeToString ( wxString & result,   wxString const& FormatStr,   wxDateTime const& DateTime );
 long DateTimeToFileDate ( wxDateTime DateTime );

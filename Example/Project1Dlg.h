@@ -28,6 +28,7 @@
 ////Header Include End
 
 ////Dialog Style Start
+#undef Project1Dlg_STYLE
 #define Project1Dlg_STYLE wxCAPTION | wxSYSTEM_MENU | wxDIALOG_NO_PARENT | wxMINIMIZE_BOX | wxCLOSE_BOX
 ////Dialog Style End
 

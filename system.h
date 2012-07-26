@@ -126,7 +126,7 @@ size_t Pos ( wxString const& substr, wxChar C );
 void UniqueString ( wxString & s );
 wxString StringOfChar ( wxChar C, size_t l );
 long ParamCount ( void );
-wxString ParamStr ( long l );
+wxString ParamStr ( int l );
 void Assert ( bool Expr );
 void Assert ( bool Expr,   wxString const& Msg );
 wxString Concat ( wxString const& S1 , wxString const& S2 , wxString const& S3 = wxT(""), wxString const & Sn = wxT("") );

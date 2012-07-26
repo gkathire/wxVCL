@@ -79,7 +79,7 @@ void Insert(wxChar source, wxString & s, size_t index)
 
 long Pos(wxString const & substr, wxString const & s)
 {
-	return s.Find((wxChar *) substr.c_str());
+	return s.Find(substr);
 }
 
 long Pos(wxChar C, wxString const & s)
@@ -150,9 +150,9 @@ long ParamCount(void)
 	return wxApp::GetInstance()->argc;
 }
 
-wxString ParamStr(long l)
+wxString ParamStr(int l)
 {
-	return wxString(wxApp::GetInstance()->argv[l], wxConvLocal);
+	return wxString(wxApp::GetInstance()->argv[l]);
 }
 
 void Assert(bool Expr)

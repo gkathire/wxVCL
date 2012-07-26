@@ -441,7 +441,7 @@ wxString Soundex(wxString const & AText, TSoundexLength ALength)
 	PS = (char)0;
 	if (Length(AText) > 0)
 	{
-		Result = UpCase(AText[1]);
+		Result =  AText.Mid(0,1).Upper();
 		i = 2;
 		l = Length(AText);
 		while ((i <= l) && (Length(Result) < ALength))
@@ -736,7 +736,7 @@ wxString AnsiProperCase(wxString const & S, TSysCharSet const & WordDelims)
 			continue;
 		}
 		if (LastCharIsDelim == true)
-			Result[i] = UpCase(Result[i]);
+			Result[i] = UpCase(Result.Mid(i,1))[0];
 		LastCharIsDelim = false;
 	}
 	return Result;
@@ -934,11 +934,11 @@ long RomanToInt(wxString const & S)
 	while ((i < l))
 	{
 		++i;
-		index = UpCase(S[i]);
+		index = UpCase(S.Mid(i,1))[0];
 		if (RomanChars.In(index))
 		{
 			if (Succ(i) <= l)
-				Next = UpCase(S[i + 1]);
+				Next = UpCase(S.Mid(i + 1,0))[0];
 			else
 				Next = (char)0;
 			if ((RomanChars.In(Next)) && (RomanValues[(int) index] <

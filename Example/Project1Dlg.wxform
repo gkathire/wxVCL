@@ -1,19 +1,21 @@
-object TfrmNewForm
-  Left = 338
-  Top = 179
+object frmNewForm: TfrmNewForm
+  Left = 303
+  Top = 203
   AutoScroll = False
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Project1'
-  ClientHeight = 300
-  ClientWidth = 312
+  ClientHeight = 346
+  ClientWidth = 360
   Color = clBtnFace
   OldCreateOrder = True
-  Position = poDesktopCenter
-  OnCloseQuery = FormCloseQuery
+  PopupMenu = DesignerPopup.Owner
+  Visible = True
+  OnClick = FormClick
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnResize = FormResize
   EVT_CLOSE = 'OnClose'
+  Wx_ICON.Data = {07544269746D617000000000}
   Wx_Name = 'Project1Dlg'
   Wx_IDName = 'ID_DIALOG1'
   Wx_IDValue = 1000
@@ -25,6 +27,7 @@ object TfrmNewForm
   Wx_DialogStyle = [wxCAPTION, wxSYSTEM_MENU, wxDIALOG_NO_PARENT, wxMINIMIZE_BOX, wxCLOSE_BOX]
   Wx_Border = 0
   Wx_BorderAlignment = []
+  isAuimanagerAvailable = False
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
 end

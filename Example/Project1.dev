@@ -1,7 +1,7 @@
 [Project]
 FileName=Project1.dev
 Name=Project1
-UnitCount=28
+UnitCount=7
 PchHead=-1
 PchSource=-1
 Ver=3
@@ -11,7 +11,7 @@ ProfileIndex=0
 Folders=
 
 [Unit9]
-FileName=comctrls.cpp
+FileName=..\dateutils.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -21,7 +21,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=dateutils.cpp
+FileName=..\dialogs.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -31,7 +31,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=comctrls.h
+FileName=..\system.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -41,7 +41,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit18]
-FileName=dateutils.h
+FileName=..\sysutils.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -119,7 +119,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=sysutils.cpp
+FileName=..\classes.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -129,7 +129,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=classes.cpp
+FileName=..\comctrls.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -139,7 +139,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=dialogs.cpp
+FileName=..\fileutil.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -149,7 +149,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=fileutil.cpp
+FileName=..\graphics.h
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -159,7 +159,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=inifiles.cpp
+FileName=..\inifiles.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -169,7 +169,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=strutils.cpp
+FileName=..\strutils.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -179,7 +179,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=system.cpp
+FileName=..\sysconst.cpp
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -189,7 +189,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=classes.h
+FileName=..\sysset.h
 CompileCpp=1
 Folder=Project1
 Compile=1
@@ -296,21 +296,21 @@ ProductName=
 ProductVersion=
 AutoIncBuildNrOnRebuild=0
 AutoIncBuildNrOnCompile=0
-UnitCount=27
+UnitCount=18
 
 [Profile1]
 ProfileName=MingW 3.4.2
 Type=0
 ObjFiles=
 Includes=
-Libs=
+Libs="C:\Program Files (x86)\Dev-Cpp\lib\wx\gcc_lib"
 ResourceIncludes=
 MakeIncludes=
 Compiler=-fno-exceptions_@@_-fno-pcc-struct-return_@@_-fstrict-aliasing_@@_-Wall_@@_-D__WXMSW___@@_-D__GNUWIN32___@@_-D__WIN95___@@_
 CppCompiler=-fno-pcc-struct-return_@@_-fstrict-aliasing_@@_-Wall_@@_-D__WXMSW___@@_-D__GNUWIN32___@@_-D__WIN95___@@_
-Linker=-mwindows_@@_-lwxmsw28_@@_-lwxmsw28_gl_@@_-lwxtiff_@@_-lwxjpeg_@@_-lwxpng_@@_-lwxzlib_@@_-lwxregex_@@_-lwxexpat_@@_-lkernel32_@@_-luser32_@@_-lgdi32_@@_-lcomdlg32_@@_-lwinspool_@@_-lwinmm_@@_-lshell32_@@_-lcomctl32_@@_-lole32_@@_-loleaut32_@@_-luuid_@@_-lrpcrt4_@@_-ladvapi32_@@_-lwsock32_@@_-lodbc32_@@_-lopengl32_@@_
+Linker=-mwindows_@@_-lwxmsw29u_@@_-lwxmsw29u_gl_@@_-lwxtiff_@@_-lwxjpeg_@@_-lwxpng_@@_-lwxzlib_@@_-lwxregexu_@@_-lwxexpat_@@_-lkernel32_@@_-luser32_@@_-lgdi32_@@_-lcomdlg32_@@_-lwinspool_@@_-lwinmm_@@_-lshell32_@@_-lcomctl32_@@_-lole32_@@_-loleaut32_@@_-luuid_@@_-lrpcrt4_@@_-ladvapi32_@@_-lwsock32_@@_-lodbc32_@@_-lopengl32_@@_
 PreprocDefines=__WXMSW___@@___GNUWIN32___@@___WIN95___@@_
-CompilerSettings=0000000001001000000000
+CompilerSettings=0000000001001001000000
 Icon=
 ExeOutput=Output\MingW
 ObjectOutput=Objects\MingW
@@ -323,7 +323,8 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-compilerType=0
+CompilerType=0
+ImagesOutput=Images\
 
 [Profile2]
 ProfileName=Visual C++ 2005
@@ -350,7 +351,8 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=1
-compilerType=1
+CompilerType=1
+ImagesOutput=Images\
 
 [Unit28]
 FileName=sysconst.cpp
