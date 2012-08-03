@@ -1043,25 +1043,13 @@ bool FindCmdLineSwitch(wxString const & Switch, bool IgnoreCase)
 	wxUnusedVar(IgnoreCase);
 	// Fixme: Important
 	THROW_NOT_IMPLEMENTED_ERROR;
-	// return false;
-	// Fixme: bool Result;
-	// Fixme: Result =FindCmdLineSwitch( Switch, SwitchChars, IgnoreCase );
-	// Fixme: return Result;
 }
 
 bool FindCmdLineSwitch(wxString const & Switch)
 {
 	wxUnusedVar(Switch);
-
 	// Fixme: Important
 	THROW_NOT_IMPLEMENTED_ERROR;
-	// return false;
-	// fixme:
-	/*
-	 bool Result;
-	 Result =FindCmdLineSwitch( Switch, SwitchChars, false );
-	 return Result;
-	 */
 }
 
 wxString WrapText(wxString const & Line, wxString const & BreakStr,
@@ -1071,72 +1059,14 @@ wxString WrapText(wxString const & Line, wxString const & BreakStr,
 	wxUnusedVar(BreakStr);
 	wxUnusedVar(BreakChars);
 	wxUnusedVar(MaxCol);
-
-	// Fixme: Important
 	THROW_NOT_IMPLEMENTED_ERROR;
-	// Fixme:
-	/*
-	 wxString Result;
-	 static wxChar const Quotes[] = { '\'' , '\"' };
-	 wxString l;
-	 wxChar c; wxChar LQ; wxChar BC;
-	 int P; int BLen; int len;
-	 bool HB; bool IBC;
-	 Result ="";
-	 l =Line;
-	 BLen =Length( BreakStr );
-	 if(  ( BLen>0 ) )
-	 BC =BreakStr[ 0 ];else
-	 BC =(wxChar)0;
-	 len =Length( l );
-	 while(  ( len >= 0 ) )
-	 {
-	 P =1;
-	 LQ =(wxChar)0;
-	 HB =false;
-	 IBC =false;
-	 while(  ( ( P<=len ) && ( ( P<=MaxCol ) ||  !IBC ) ) && ( ( LQ!=(wxChar)0 ) ||  !HB ) )
-	 {
-	 c =l[ P ];
-	 if(  ( c==LQ ) )
-	 LQ =(wxChar)0;else if(  ( c in Quotes ) )
-	 LQ =c;
-	 if(  ( LQ!=(wxChar)0 ) )
-	 ++P;else
-	 {
-	 HB =( ( c==BC ) && ( BreakStr==Copy( l, P, BLen ) ) );
-	 if(  HB )
-	 P += BLen;else
-	 {
-	 if(  ( P>MaxCol ) )
-	 IBC =c in BreakChars;
-	 ++P;
-	 }
-	 }
-	 //      Writeln('"',C,'" : IBC : ',IBC,' HB  : ',HB,' LQ  : ',LQ,' P>MaxCol : ',P>MaxCol);
-	 }
-	 Result =Result+Copy( l, 1, P-1 );
-	 if(  !HB )
-	 Result =Result+BreakStr;
-	 Delete( l, 0, P-1 );
-	 len =Length( l );
-	 }
-	 return Result;
-	 */
 }
 
 wxString WrapText(wxString const & Line, int MaxCol)
 {
 	wxUnusedVar(Line);
 	wxUnusedVar(MaxCol);
-
-	// Fixme: Important
 	THROW_NOT_IMPLEMENTED_ERROR;
-	// return "";
-	// Fixme: Fix the Delphi Set
-	// wxString Result;
-	// Result =WrapText( Line, sLineBreak , [ " " , "-" , (wxChar)9 ] , MaxCol );
-	// return Result;
 }
 
 wxDateTime DoEncodeDate(unsigned short Year, unsigned short Month,
@@ -1341,7 +1271,7 @@ wxString DateTimeToStr(wxDateTime DateTime)
 wxDateTime StrToDate(wxString const & S)
 {
 	wxDateTime Result;
-	if (Result.ParseDate(S) == NULL)
+	if (Result.ParseFormat(S) == NULL)
 		throw EConvertError::Create(wxT("Invalid Date format"));
 	return Result;
 }
@@ -1349,7 +1279,7 @@ wxDateTime StrToDate(wxString const & S)
 wxDateTime StrToTime(wxString const & S)
 {
 	wxDateTime Result;
-	if (Result.ParseTime(S) == NULL)
+	if (Result.ParseFormat(S) == NULL)
 		throw EConvertError::Create(wxT("Invalid Date format"));
 	return Result;
 }
@@ -1357,7 +1287,7 @@ wxDateTime StrToTime(wxString const & S)
 wxDateTime StrToDateTime(wxString const & S)
 {
 	wxDateTime Result;
-	if (Result.ParseDateTime(S) == NULL)
+	if (Result.ParseFormat(S) == NULL)
 		throw EConvertError::Create(wxT("Invalid Date Time format"));
 	return Result;
 }
@@ -1434,6 +1364,11 @@ bool TryStrToTime(wxString const & S, wxDateTime & Value)
 
 bool TryStrToDateTime(wxString const & S, wxDateTime & Value)
 {
+	if (wxString(S).Trim().IsEmpty())
+	{
+		return false;
+	}
+		
 	bool Result;
 	Result = true;
 	try

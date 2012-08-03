@@ -275,8 +275,16 @@ unsigned long TIniFile::ReadULong(const wxString &Section,
 	return StrToULong(ReadString(Section, Ident, ULongToStr(Default)));
 }
 
+wxLongLong TIniFile::ReadLongLong(const wxString &Section, const wxString &Ident,
+	wxLongLong Default)
+{
+	wxString str = ReadString(Section, Ident, Default.ToString());
+	wxLongLong lng = StrToLongLong(str);
+	return lng;
+}
+
 long TIniFile::ReadLong(const wxString &Section, const wxString &Ident,
-  long Default)
+	long Default)
 {
 	return StrToLong(ReadString(Section, Ident, LongToStr(Default)));
 }
@@ -298,15 +306,27 @@ wxDateTime TIniFile::ReadULongDateTime(const wxString &Section,
 wxDateTime TIniFile::ReadDate(const wxString &Section, const wxString &Ident,
   wxDateTime Default)
 {
-	return StrToDateTimeDef(ReadString(Section, Ident, DateToStr(Default)),
-	  Default);
+	wxLongLong ticks = ReadLongLong(Section, Ident, Default.GetTicks());
+	if (ticks == 0 || ticks == -1)
+		return Default;
+	wxDateTime result (ticks);
+	if (result.IsValid())
+		return result;
+	else
+		return Default;
 }
 
 wxDateTime TIniFile::ReadTime(const wxString &Section, const wxString &Ident,
   wxDateTime Default)
 {
-	return StrToDateTimeDef(ReadString(Section, Ident, TimeToStr(Default)),
-	  Default);
+	long ticks = ReadLong(Section, Ident, Default.GetTicks());
+	if (ticks == 0)
+		return Default;
+	wxDateTime result (ticks);
+	if (result.IsValid())
+		return result;
+	else
+		return Default;
 }
 
 wxColour TIniFile::ReadColor(const wxString & Section, const wxString & Ident,
@@ -541,6 +561,13 @@ void TIniFile::WriteLong(const wxString &Section, const wxString &Ident,
 	WriteString(Section, Ident, LongToStr(Value));
 }
 
+void TIniFile::WriteLongLong(const wxString &Section, const wxString &Ident,
+	wxLongLong Value)
+{
+	WriteString(Section, Ident, Value.ToString());
+}
+
+
 void TIniFile::WriteDateTime(const wxString &Section, const wxString &Ident,
   wxDateTime Value)
 {
@@ -556,13 +583,13 @@ void TIniFile::WriteULongDateTime(const wxString &Section,
 void TIniFile::WriteDate(const wxString &Section, const wxString &Ident,
   wxDateTime Value)
 {
-	WriteString(Section, Ident, DateToStr(Value));
+	WriteLongLong(Section, Ident, Value.GetTicks());
 }
 
 void TIniFile::WriteTime(const wxString &Section, const wxString &Ident,
-  wxDateTime Value)
+	wxDateTime Value)
 {
-	WriteString(Section, Ident, TimeToStr(Value));
+	WriteLong(Section, Ident, Value.GetTicks());
 }
 
 void TIniFile::WriteDateSpan(const wxString & Section, const wxString & Ident,
@@ -613,8 +640,7 @@ void TIniFile::WriteStringList(const wxString & Section, const wxString & Ident,
 	EraseSection(Section);
 	for (int i = 0; i < Value.GetCount(); i++)
 	{
-		this->WriteString(Section, wxString::Format("%s%d", Ident, IntToStr(i)),
-		  Value.Item(i));
+		this->WriteString(Section, wxString::Format("%s%d", Ident, i),Value.Item(i));
 	}
 }
 
@@ -624,7 +650,7 @@ void TIniFile::WriteStringList(const wxString & Section, const wxString & Ident,
 	EraseSection(Section);
 	for (int i = 0; i < Value.GetCount(); i++)
 	{
-		this->WriteString(Section, wxString::Format("%s%d", Ident, IntToStr(i)),
+		this->WriteString(Section, wxString::Format("%s%d", Ident, (i)),
 		  Value.Item(i));
 	}
 }

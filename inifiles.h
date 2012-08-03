@@ -72,34 +72,37 @@ public:
     void ReadSectionNames( const wxString & Section,  TStringList &Strings);
     void ReadSectionNamesValues(const wxString &Section,  TStringList &NameStrings,  TStringList &ValueStrings);    
 
-    
-    bool ReadBool( const wxString & Section, const wxString & Ident,  bool Default);
-    long ReadInteger( const wxString & Section, const wxString & Ident,  long Default);
-    wxString ReadString( const wxString & Section, const wxString & Ident,  const wxString & Default);
-    float ReadFloat( const wxString & Section, const wxString & Ident,  float Default);
-    double ReadDouble( const wxString & Section, const wxString & Ident,  double Default);
-    unsigned long ReadULong( const wxString & Section, const wxString & Ident,  unsigned long Default);
-    long ReadLong( const wxString & Section, const wxString & Ident,  long Default);
-    wxDateTime ReadDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
-    wxDateTime ReadULongDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
-    wxDateTime ReadDate( const wxString & Section, const wxString & Ident,  wxDateTime Default);
-    wxDateTime ReadTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
-    wxDateSpan ReadDateSpan( const wxString & Section, const wxString & Ident,  wxDateSpan Default);    
-    wxColour ReadColor( const wxString & Section, const wxString & Ident,  wxColour Default);
-    wxFont ReadFont( const wxString & Section, const wxString & Ident,  wxFont Default);
-    wxPoint ReadPoint( const wxString & Section, const wxString & Ident,  wxPoint Default);
-    wxRealPoint ReadRealPoint( const wxString & Section, const wxString & Ident,  wxRealPoint Default);
-    wxRect ReadRect( const wxString & Section, const wxString & Ident,  wxRect Default);
-    wxSize ReadSize( const wxString & Section, const wxString & Ident,  wxSize Default);
-    wxArrayString ReadStringList( const wxString & Section, wxArrayString Default);
 
-    void WriteBool( const wxString & Section, const wxString & Ident,  bool Value);
-    void WriteInteger( const wxString & Section, const wxString & Ident,  long Value);
-    void WriteString( const wxString & Section, const wxString & Ident,  const wxString & Value);
-    void WriteFloat( const wxString & Section, const wxString & Ident,  float Value);
-    void WriteDouble( const wxString & Section, const wxString & Ident,  double Value);
-    void WriteULong( const wxString & Section, const wxString & Ident,  unsigned long Value);
-    void WriteLong( const wxString & Section, const wxString & Ident,  long Value);
+		bool ReadBool( const wxString & Section, const wxString & Ident,  bool Default);
+		long ReadInteger( const wxString & Section, const wxString & Ident,  long Default);
+		wxString ReadString( const wxString & Section, const wxString & Ident,  const wxString & Default);
+		float ReadFloat( const wxString & Section, const wxString & Ident,  float Default);
+		double ReadDouble( const wxString & Section, const wxString & Ident,  double Default);
+		unsigned long ReadULong( const wxString & Section, const wxString & Ident,  unsigned long Default);
+		long ReadLong( const wxString & Section, const wxString & Ident,  long Default);
+		wxLongLong ReadLongLong(const wxString &Section, const wxString &Ident,wxLongLong Default);		
+		wxDateTime ReadDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
+		wxDateTime ReadULongDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
+		wxDateTime ReadDate( const wxString & Section, const wxString & Ident,  wxDateTime Default);
+		wxDateTime ReadTime( const wxString & Section, const wxString & Ident,  wxDateTime Default);
+		wxDateSpan ReadDateSpan( const wxString & Section, const wxString & Ident,  wxDateSpan Default);
+		wxColour ReadColor( const wxString & Section, const wxString & Ident,  wxColour Default);
+		wxFont ReadFont( const wxString & Section, const wxString & Ident,  wxFont Default);
+		wxPoint ReadPoint( const wxString & Section, const wxString & Ident,  wxPoint Default);
+		wxRealPoint ReadRealPoint( const wxString & Section, const wxString & Ident,  wxRealPoint Default);
+		wxRect ReadRect( const wxString & Section, const wxString & Ident,  wxRect Default);
+		wxSize ReadSize( const wxString & Section, const wxString & Ident,  wxSize Default);
+		wxArrayString ReadStringList( const wxString & Section, wxArrayString Default);
+
+		void WriteBool( const wxString & Section, const wxString & Ident,  bool Value);
+		void WriteInteger( const wxString & Section, const wxString & Ident,  long Value);
+		void WriteString( const wxString & Section, const wxString & Ident,  const wxString & Value);
+		void WriteFloat( const wxString & Section, const wxString & Ident,  float Value);
+		void WriteDouble( const wxString & Section, const wxString & Ident,  double Value);
+		void WriteULong( const wxString & Section, const wxString & Ident,  unsigned long Value);
+		void WriteLong( const wxString & Section, const wxString & Ident,  long Value);
+		void WriteLongLong(const wxString &Section, const wxString &Ident,wxLongLong Value);
+
     void WriteDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Value);
     void WriteULongDateTime( const wxString & Section, const wxString & Ident,  wxDateTime Value);
     void WriteDate( const wxString & Section, const wxString & Ident,  wxDateTime Value);

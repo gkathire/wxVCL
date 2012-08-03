@@ -220,4 +220,6 @@ wxString TrimLeftSet ( wxString const& S,  TSysCharSet const& CSet );
 wxString TrimRightSet ( wxString const& S,  TSysCharSet const& CSet );
 wxString TrimSet ( wxString const& S,  TSysCharSet const& CSet );
 
+wxString ExtractEmail(const wxString& txt);
+
 #endif//StrUtilsH

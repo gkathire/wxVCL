@@ -146,4 +146,7 @@ void Str ( const long & X,   wxString & s );
 void Str ( const double & X,   wxString & s );
 void Val ( wxString const& s,  double & V,  unsigned short & Code );
 
+//function borrowed from wxsqlite3 project's function ConvertStringToLongLong	
+wxLongLong StrToLongLong(const wxString& str, wxLongLong defValue =0);
+
 #endif//SystemH

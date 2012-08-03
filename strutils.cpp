@@ -28,15 +28,17 @@
  statement from your version.
  */
 
-#include "system.h"
-#include "strutils.h"
+#include <wx/wx.h>
 #include <wx/cmdline.h>
 #include <wx/ffile.h>
 #include <wx/textfile.h>
+#include <wx/regex.h>
 #include <wx/app.h>
-#include "sysutils.h"
+#include "system.h"
 #include <stdlib.h>
-#include <wx/wx.h>
+#include "sysutils.h"
+#include "strutils.h"
+
 
 int RandomFromInterval(int EndValue)
 {
@@ -146,8 +148,9 @@ bool AnsiContainsText(wxString const & AText, wxString const & ASubText)
 
 bool AnsiStartsText(wxString const & ASubText, wxString const & AText)
 {
-	bool Result = AnsiCompareText(Copy(AText, 1, Length(ASubText)),
-	  ASubText) == 0;
+	if (ASubText.Length() > AText.Length())
+		return false;
+	bool Result = AnsiCompareText(Copy(AText, 0, Length(ASubText)-1), ASubText) == 0;
 	return Result;
 }
 
@@ -1224,5 +1227,16 @@ wxString TrimSet(wxString const & S, TSysCharSet const & CSet)
 {
 	wxString Result = S;
 	RemovePadChars(Result, CSet);
+	return Result;
+}
+
+wxString ExtractEmail(const wxString& txt)
+{
+	wxString Result;
+	wxRegEx reEmail(wxT("[_a-zA-Z\\d\\-\\.]+@([_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+)"));
+	if ( reEmail.Matches(txt) )
+	{
+		Result = reEmail.GetMatch(txt);
+	}
 	return Result;
 }

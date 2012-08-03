@@ -28,8 +28,8 @@
  statement from your version.
  */
 
-#ifndef INCLUDED_SYSCONST_H
-#define INCLUDED_SYSCONST_H
+#ifndef SysConstH
+#define SysConstH
 
 #include <wx/wx.h>
 

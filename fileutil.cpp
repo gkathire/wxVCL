@@ -575,3 +575,53 @@ wxString ReadFileToString(wxString const & Filename)
 	LoadFromFile(Filename, str);
 	return ArrayStringToString(str);
 }
+
+TStringList GetFolderList(wxString baseFolder, bool includeFullFolderPath)
+{
+  TStringList result;
+	wxString FName;
+		wxDir dir(baseFolder);
+	if (dir.GetFirst(&FName,wxEmptyString,wxDIR_DIRS))
+	{
+		do
+		{
+			if (includeFullFolderPath)
+			{
+				wxString FullDirName = IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(baseFolder) + FName);
+				result.Add(FullDirName);
+			}
+			else
+			{
+				result.Add(FName);
+      }
+		} while(dir.GetNext(&FName));
+	}
+	return result;
+}
+
+TStringList GetFileList(wxString folder, const wxString& mask, bool includeFullFolderPath)
+{
+	TStringList result;
+	wxString FName;
+	if (wxDir::Exists(folder) == false)
+	{
+		return result;
+	}
+	wxDir dir(folder);
+	if (dir.GetFirst(&FName,mask,wxDIR_FILES))
+	{
+		do
+		{
+			if (includeFullFolderPath)
+			{
+				wxString FullFileName = IncludeTrailingPathDelimiter(folder) + FName;
+				result.Add(FullFileName);
+			}
+			else
+			{
+				result.Add(FName);
+			}
+		} while(dir.GetNext(&FName));
+	}
+	return result;
+}

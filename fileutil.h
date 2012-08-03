@@ -104,6 +104,7 @@ wxString ReadFileToString( wxString const& Filename);
 bool CopyFile( wxString const& SrcFilename, wxString const& DestFilename);
 bool CopyFile( wxString const& SrcFilename, wxString const& DestFilename,  bool PreserveTime);
 wxString GetTempFilename( wxString const& Directory, wxString const& Prefix);
-
+TStringList GetFolderList(wxString baseFolder, bool includeFullFolderPath = true);
+TStringList GetFileList(wxString folder, const wxString& mask, bool includeFullFolderPath = true);
 #endif //FileUtilH
 

@@ -237,3 +237,31 @@ void Val(wxString const & s, double & V, unsigned short & Code)
 	// fixme: Convert the String to V and the return code as the place where the string has invalid data
 	THROW_NOT_IMPLEMENTED_ERROR;
 }
+
+//function borrowed from wxsqlite3 project
+wxLongLong StrToLongLong(const wxString& str, wxLongLong defValue /*=0*/)
+{
+	size_t n = str.Length();
+	size_t j = 0;
+	wxLongLong value = 0;
+	bool negative = false;
+
+	if (str[j] == '-')
+	{
+		negative = true;
+		j++;
+	}
+
+	while (j < n)
+	{
+		if (str[j] < '0' || str[j] > '9')
+		{
+			return defValue;
+		}
+		value *= 10;
+		value += (str[j] - '0');
+		j++;
+	}
+
+	return negative ? -value : value;
+}

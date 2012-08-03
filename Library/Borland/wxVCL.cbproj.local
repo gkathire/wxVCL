@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2012/07/26 22:05:28.093.cbproj,C:\Users\Guru\Documents\RAD Studio\Projects\Project7.cbproj=E:\Projects\Cpp\Bitbucket\mailboxfetchformac\Source\Library\wxVCL\Library\Borland\wxVCL.cbproj</Transaction>
+    <Transaction>2012/07/27 19:24:04.165.h,E:\Projects\Cpp\Bitbucket\mailboxfetchformac\Source\Library\wxVCL\linkparser.h=</Transaction>
+    <Transaction>2012/07/27 19:24:12.873.cpp,E:\Projects\Cpp\Bitbucket\mailboxfetchformac\Source\Library\wxVCL\linkparser.cpp=</Transaction>
+    <Transaction>2012/07/27 19:25:16.782.cpp,E:\Projects\Cpp\Bitbucket\mailboxfetchformac\Source\Library\wxVCL\sysconst.cpp=</Transaction>
+  </Transactions>
+</BorlandProject>
